@@ -24,8 +24,8 @@ jobs:
 
     - name: Build the project
       run: |
-        dotnet restore ./codeql-demo/codeql-demo.csproj
-        dotnet build ./codeql-demo/codeql-demo.csproj --configuration Release
+        dotnet restore codeql-demo/codeql-demo.csproj
+        dotnet build codeql-demo/codeql-demo.csproj --configuration Release
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
