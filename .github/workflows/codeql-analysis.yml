@@ -1,5 +1,5 @@
-
 name: "CodeQL Analysis"
+
 on:
   push:
     branches: [ main ]
@@ -7,6 +7,7 @@ on:
     branches: [ main ]
   schedule:
     - cron: '0 0 * * 0'
+
 jobs:
   analyze:
     name: Analyze
@@ -14,14 +15,18 @@ jobs:
     permissions:
       contents: read
       security-events: write
-steps:
+
+    steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-- name: Initialize CodeQL
+
+    - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
-- name: Perform CodeQL Analysis
+
+    - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
-- name: Create Pull Request for Issues
+
+    - name: Create Pull Request for Issues
       uses: peter-evans/create-pull-request@v5
       with:
         branch: codeql/fix-issues
